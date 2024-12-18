@@ -10,8 +10,8 @@ library(dplyr)
 library(tidycensus)
 library(Hmisc)
 
-setwd("C:/users/griswold/Desktop/datasets/")
-census_key <- "bdb4891f65609f274f701e92911b94365992028a"
+setwd("./data")
+census_key <- ""
 
 # Create plots?
 make_plots <- F
@@ -22,62 +22,14 @@ check_ucr  <- F
 # https://www.openicpsr.org/openicpsr/project/100707/version/V17/view
 # https://www.icpsr.umich.edu/web/ICPSR/studies/35158
 
-ucr <- fread("ucr/ucr_1960_2020_offenses_known.csv")
+ucr <- fread("./data/ucr/ucr_1960_2020_offenses_known.csv")
 
-# Get treatment datae
-treat <- fread("C:/Users/griswold/Desktop/RAND Work/cfho/treated_locs.csv", fill = T)
-
-# Load FHEO inquiries & sundown towns list:
-fheo    <- fread("hud/fheo_inquiries_files/city_2013_2021/fheo_inquiries_by_city_2013_2021.csv") %>%
-  .[, .(X, Y, Jurisdicti, HUD_AFFH_4, HUD_AFFH_5, Tot_Inquiries, InqPerThousandPop)] %>%
-  setnames(., names(.), c("x", "y", "location", "inquiry_count_race", 
-                          "inquiry_count_national_origin" ,"inquiry_count_total",
-                          "inquiry_rate_1000_pop"))
-
-sundown <- fread("loewen_sundown/sundown_towns.csv")
+# Get treatment data
+treat <- fread("./data/treated_locs.csv", fill = T)
 
 # Load decennial census estimates:
-df_decennial <- fread('C:/users/griswold/desktop/datasets/census/decennial/nhgis_place/decennial_processed.csv')
+df_decennial <- fread('./data/census/decennial/nhgis_place/decennial_processed.csv')
 
-# Load location hierarchy
-loc_hierarchy <- fread("helpful/census_cal_loc_hierarchy_2019.csv")
-
-# Only hold onto county/place hierarchy:
-loc_hierarchy <- unique(loc_hierarchy[, .(place_geoid, county, place)])
-setnames(loc_hierarchy, c("place_geoid", "place"), c("geoid", "location"))
-
-# Only hold onto Cal locations with LEAs:
-loc_hierarchy <- loc_hierarchy[!(location %like% "CDP"),]
-
-fheo_sundown <- join(fheo, sundown, by = "location", type = "left")
-fheo_sundown[is.na(sundown), sundown := 0]
-
-fheo_sundown <- fheo_sundown[, .(location, inquiry_count_race, inquiry_count_national_origin, inquiry_count_total, inquiry_rate_1000_pop, sundown)]
-
-# Three counties in Loewen were identified as sundown towns. For these counties,
-# let's get a list of place-names within these counties to then merge onto 
-# fheo_sundown
-
-sundown_counties <- sundown[(location %like% "County") & !(location %in% fheo_sundown[!is.na(sundown), unique(location)]), location]
-sundown_counties <- gsub(" County", "", sundown_counties)
-
-sundown_supplemental_cities <- loc_hierarchy[county %in% sundown_counties]
-
-fheo_sundown[location %in% sundown_supplemental_cities$place, sundown := 1]
-
-# Need to change some of the names in fheo_sundown/loc hierarchy so they match
-fheo_sundown[location == "Angels Camp", location := "Angels"]
-fheo_sundown[location == "San Francisco City/County", location := "San Francisco"]
-
-loc_hierarchy[location == "San Buenaventura (Ventura)", location := "Ventura"]
-loc_hierarchy[location == "La Cañada Flintridge", location := "La Canada Flintridge"]
-loc_hierarchy[location == "El Paso de Robles (Paso Robles)", location := "Paso Robles"]
-
-#Merge on geoid:
-fheo_sundown <- join(fheo_sundown, loc_hierarchy)
-fheo_sundown <- fheo_sundown[, .(geoid, inquiry_rate_1000_pop, inquiry_count_race, inquiry_count_national_origin, sundown)]
-
-write.csv(fheo_sundown, "helpful/fheo_sundown_by_place.csv", row.names = F)
 
 # UCR distinguishes between two broad categories of crime: those committed
 # against persons & those committed against property. Let's use these
@@ -106,52 +58,6 @@ ucr <- ucr[, keep_vars, with = F]
 
 # Remove locations missing a geoid or agency_name
 ucr <- ucr[(!((geoid %like% "NA")|crosswalk_agency_name == ""))]
-
-# Sanity check:
-# Attempt to replicate figure displayed in PPIC report on property & violent crime rates:
-# See figure 1, here: https://www.ppic.org/publication/crime-trends-in-california/
-# (Note: They use CDJ JSC data but this should be 1:1 w/ UCR; also, they have
-# psychotic y-axes, so keeping this in mind as well)
-
-if (check_ucr == T){
-  
-  test <- copy(ucr)
-  test <- test[, c("year", "actual_index_property", 
-                   "actual_index_violent"), with = F]
-  
-  test[, `:=`(actual_index_property = sum(.SD$actual_index_property, na.rm = T),
-              actual_index_violent  = sum(.SD$actual_index_violent, na.rm = T)),
-       by = "year"]
-  
-  test <- unique(test)
-  
-  # Quickly extracted from FRED; I couldn't remember where I saved those pop estimates.
-  # Pop estimates extracted from ACS 5-year below.
-  # (https://fred.stlouisfed.org/series/CAPOP)
-  
-  ca_pop <- fread("ca_pop.csv")
-  setnames(ca_pop, names(ca_pop), c("year", "pop"))
-  
-  ca_pop[, year := as.integer(gsub("\\-.*", "", year))]
-  ca_pop[, pop  := pop*1000]
-  
-  test <- join(test, ca_pop, by = "year", type = "left")
-  test <- setDT(melt(test, id.vars = c("year", "pop"), 
-                     variable.name = "crime_type", value.name = "crime_rate"))
-  
-  test[, crime_rate := (crime_rate/pop)*100000]
-  
-  if (make_plots){
-    ggplot(test, aes(y = crime_rate, x = year, color = crime_type)) +
-      geom_line() +
-      lims(y = c(0, 7000)) +
-      theme_bw()
-  }
-}
-
-# Looks like a complete match, unsurprisingly. As such, I'll ship the data off for
-# the analyses, after inspecting trends by cities (this will be a super fun 
-# pdf to review. . .)
 
 ucr <- ucr[year %in% c(2000, 2009:2020), ]
 
@@ -316,7 +222,7 @@ census_vars <- setDT(ldply(years, extract_census))
 census_vars[, geoid := as.character(as.numeric(geoid))]
 
 # Merge on rent CPI and calculate rent prices & income in 2020 dollars:
-cpi_rent <- fread("bls/cpi_urban/cpi_rent_shelter.csv")
+cpi_rent <- fread("./data/bls/cpi_urban/cpi_rent_shelter.csv")
 setnames(cpi_rent, names(cpi_rent), c("year", "cpi_b82"))
 cpi_rent[, year := as.numeric(gsub("1/1/", "", year))]
 
@@ -372,30 +278,7 @@ test <- test[!is.na(all_crimes)]
 
 length(unique(test$location)) - length(unique(test[location %like% "CDP"]$location))
 
-#Yes, minus the 5 missing cities! We're in the clear (maybe)
-
-ucr <- test[!(location %like% "CDP")]
-
-# Another sanity check: Census estimates that 25% of US population lives outside
-# municipalities (hence the need for CDPs). If so, our estimate of population
-# for CA municipalities in 2020 should be close to 30 mil, rather than the
-# roughly 40 mil in CA for 2020 (based on NHGIS 2020 records):
-
-ucr[year == 2020, sum(total_population, na.rm = T)]
-
-# Looks pretty close. In summary, collapsing to only municipalities leaves us
-# 7 mil short of all of California, which seems consistent with census lit.
-
-# Last check. PPIC report above states there were 428 violent crimes per 100k
-# in 2019. What is the implied violent crime rate in our dataset, given
-# reduced population?
-
-print(ucr[, (sum(index_violent, na.rm = T)/sum(total_population, na.rm = T))*100000])
-
-# so we obtained a rate of 439 per 100k, which seems reasonably close to me
-# (it makes some intuitive sense rate for our sample would be higher than overall
-# for state, since CDP locations are more rural and likely have lower violent
-# crime index rate)
+#Yes, minus the 5 missing cities! We're in the clear
 
 # Let's now reshape long, investigate extreme values, and make some plots:
 
@@ -509,7 +392,7 @@ if (make_plots){
   density_plots <- lapply(unique(ucr$crime_type), crime_type_density_by_year)
   density_plots <- marrangeGrob(density_plots, nrow = 1, ncol = 1)
   
-  ggsave("plots/ucr_histograms_crime_type.pdf", density_plots, width = 21, height = 29.7, units = "cm")
+  ggsave("./plots/ucr_histograms_crime_type.pdf", density_plots, width = 21, height = 29.7, units = "cm")
 }
 
 # Based on above densities, lots of crime types that should likely be excluded:
@@ -703,9 +586,6 @@ df_analysis[year < year_implemented & ever_nuisance == 1, nuisance := 0]
 # in the outcome variables
 df_analysis <- df_analysis[!(location %in% c("industry", "vernon"))]
 
-# Merge on FHEO & Sundown:
-df_analysis <- join(df_analysis, fheo_sundown, type = 'left')
-
 # For covariates, set level equal to what's observed in 2009 (i.e. do not
 # condition on post-treatment covariates)
 covariates <- df_analysis[year == 2009, .(geoid, pop_female, pop_white, pop_immigrant,
@@ -728,7 +608,7 @@ outlier <- c("amador city", "blue lake", "calipatria", "half moon bay", "millbra
 df_analysis <- df_analysis[!(location %in% outlier), ]
 
 # Add on eviction records as well for summary table purposes:
-df_evict <- fread("./concat_test/evict_paper/evict_census_place.csv")
+df_evict <- fread("./data/evict_census_place.csv")
 df_evict[, geoid := fips_code]
 
 df_evict <- df_evict[, .(geoid, year, evict_count, evict_rate)]

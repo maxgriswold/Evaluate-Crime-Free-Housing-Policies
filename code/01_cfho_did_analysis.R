@@ -13,14 +13,14 @@ library(bacondecomp)
 library(fixest)
 library(did)
 
-main_dir <- "C:/users/griswold/Desktop/datasets/"
+main_dir <- "./"
 setwd(main_dir)
 
 analysis_type <- 'main_analysis'
 
-model_dir     <- paste0("./cfho_analysis/did/", analysis_type, "/models/")
+model_dir   <- paste0("./cfho_analysis/did/", analysis_type, "/models/")
 
-df_analysis <- fread("./cfho_analysis/did/df_did_analysis.csv") 
+df_analysis <- fread("./data/df_did_analysis.csv") 
 
 # Prep event study dataset:
 df_es <- df_analysis[year >= 2009 & year <= 2019,]
@@ -31,13 +31,6 @@ if (analysis_type == "sensitivity_analysis_nuisance"){
    df_es[is.na(ever_treated), ever_treated := 1]
    df_es[ever_treated == 1, policy_type := "cfmhp"]
    
-}
-
-if (analysis_type == "reviewer_analysis"){
-  
-  df_es[, total_crime_rate_10k := asinh(total_crime_rate_10k)]
-  df_es[, assault_rate_10k := asinh(assault_rate_10k)]
-  df_es[, burglary_rate_10k := asinh(burglary_rate_10k)]
 }
 
 df_es <- df_es[ever_treated == 0 | (year_implemented >= 2010 & policy_type == "cfmhp"), ]
@@ -466,89 +459,3 @@ ggsave(filename = paste0("./cfho_analysis/figs_collected/figure_3.svg"),
 
 ggsave(filename = paste0("./cfho_analysis/figs_collected/figure_3.png"),
        plot = capstone, device = "png", height = 8.3, width = 11.7, units = "in")
-
-# # Simulate varying number of control units compared to treated & calculate
-# # percent early v. late comparison weight percentages in goodman-bacon decomp:
-# 
-# sim_scenarios <- function(nc, nt, d){
-#   
-#   # Hold onto all treated units and a select number of controls
-#   d <- d[geoid %in% nt|geoid %in% nc,]
-#   
-#   model_sa_assault  <- feols(burglary_total ~ sunab(ever_treated, ttt) | location + year, d, cluster = "location")
-#   model_ols_assault <- feols(burglary_total ~ treated  | location + year, d, cluster = "location")
-#   
-#   sa   <- coef(summary(model_sa_assault, agg = "ATT"))[['ATT']]
-#   twfe <- coef(model_ols_assault)[['treated']]
-#   
-#   #Calculate percentage of estimate driven by "forbidden comparisons"
-#   res <- data.table('n_control' = length(nc),
-#                     'sf' = sa,
-#                     'twfe' = twfe)
-#   
-#   return(res)
-#   
-# }
-# 
-# control_scenarios <- list()
-# control_sites <- unique(df_es[ever_treated == 0, geoid])
-# 
-# for (i in seq(10, length(control_sites), 5)){
-#   
-#   if (i == 10){
-#     
-#     add <- sample(control_sites, 5)
-#     control_scenarios[[i]] <- c(add)
-#     
-#     remaining_controls <- control_sites[control_sites != add]
-#     
-#   }else{
-#     
-#     add <- sample(remaining_controls, 5)
-#     control_scenarios[[i]] <- c(control_scenarios[[i - 5]], add)
-#     
-#     remaining_controls <- remaining_controls[remaining_controls != add]
-#     
-#   }
-# }
-# 
-# treatment_scenarios <- list(c(sample(unique(df_es[year_implemented >= 2011 & year_implemented <= 2015, geoid]), 6),
-#                               sample(unique(df_es[year_implemented > 2015, geoid]), 3)),
-#                             sample(unique(df_es[year_implemented >= 2011, geoid]), 9),
-#                             c(sample(unique(df_es[year_implemented >= 2011 & year_implemented <= 2015, geoid]), 3),
-#                                 sample(unique(df_es[year_implemented > 2015, geoid]), 6)))
-# 
-# sim1 <- setDT(ldply(control_scenarios, sim_scenarios, d = df_es, nt = treatment_scenarios[[1]]))
-# sim1[, scenario := "Few early-treated"]
-# 
-# sim2 <- setDT(ldply(control_scenarios, sim_scenarios, d = df_es, nt = treatment_scenarios[[2]]))
-# sim2[, scenario := "Balanced treatment"]
-# 
-# sim3 <- setDT(ldply(control_scenarios, sim_scenarios, d = df_es, nt = treatment_scenarios[[3]]))
-# sim3[, scenario := "Few late-treated"]
-# 
-# sims <- rbind(sim1, sim2, sim3)
-# 
-# full_est <- coef(summary(feols(burglary_total ~ sunab(ever_treated, ttt) | location + year, df_es, cluster = "location"), agg = 'ATT'))
-# 
-# sims[, diff := 100*(sf - twfe)/twfe]
-# 
-# ggplot(sims, aes(x = n_control, y = diff, color = scenario)) + 
-#   geom_line(size = 1) + 
-#   labs(title = "Difference in effect size: \nSun & Abraham \ncompared to TWFE estimate", 
-#        x = "Number of \ncontrol units", 
-#        y = "Relative percent \ndifference in \nestimated \neffect size",
-#        color = "Treatment timing \nscenario") + 
-#   lims(y = c(-125, 125)) +
-#   theme_bw() + 
-#   theme(axis.title.y = element_text(angle = 0, vjust = 0.5, size = 11),
-#         axis.title.x = element_text(size = 11),
-#         plot.title = element_text(hjust = 0.5, size = 14),
-#         axis.text.x = element_text(size = 10),
-#         axis.text.y = element_text(size = 10),
-#         legend.position = "bottom")
-# 
-# ggsave("bacon_ex.jpg", height = 8, width = 10, units = "in")
-
-plot(df_analysis[location == "claremont",]$year, df_analysis[location == "claremont",]$assault_rate_10k, xlab = "Year", ylab = "Violent crime rate (per 10k people)")
-lines(df_analysis[location == "claremont",]$year, df_analysis[location == "claremont",]$assault_rate_10k)

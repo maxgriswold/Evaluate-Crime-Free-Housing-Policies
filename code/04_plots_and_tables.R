@@ -1,4 +1,4 @@
-# Construct summary tables, figures, and maps
+# Construct summary tables, figures, and maps for report
 # Max Griswold
 # 3/17/23
 
@@ -21,9 +21,9 @@ library(scales)
 
 options(scipen = 999)
 
-census_key <- "bdb4891f65609f274f701e92911b94365992028a"
+census_key <- ""
 
-setwd("C:/users/griswold/Desktop/datasets/")
+setwd("./")
 
 df_analysis <- fread("./cfho_analysis/did/df_did_analysis.csv")
 
@@ -77,7 +77,7 @@ compare_vars <- c("index_total_2000_2010", "assault_total_2000_2010", "burglary_
                   "inquiry_count_race", "inquiry_count_national_origin")
 
 # Several sites went from having no people of color to having some, causing
-# percent to be infinite. This only effects two sites, with small populations (<1k people
+# percent change to be infinite. This only effects two sites, with small populations (<1k people
 # in these cities). So for now, set any Inf to NA:
 df_change[df_change == Inf] <- NA
 
@@ -86,10 +86,8 @@ df_change[, inquiry_rate_1000_pop := (inquiry_rate_1000_pop*10)]
 df_change[, inquiry_count_race := (inquiry_count_race*10000)/total_population]
 df_change[, inquiry_count_national_origin := (inquiry_count_national_origin*10000)/total_population]
 
-# Try outliering Crescent city:
-df_change <- df_change[location != "crescent city"]
 
-# Calculate CI instead of using quantiles given reviewer comments
+# Calculate CI instead using quantiles
 compare_table <- df_change[, sapply(.SD, function(x) list(mean = mean(x, na.rm = T), 
                                                           sd = sd(x, na.rm = T))),
                                                           by = "ever_treated", 

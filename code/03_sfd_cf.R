@@ -1,4 +1,4 @@
-# Summarize estimated equations and simulate counterfactual policy results
+# Summarize estimates  and simulate counterfactual policy results
 # Max Griswold
 # 3/10/23
 
@@ -17,7 +17,7 @@ library(MASS)
 
 # Get sfd analysis dataset and results:
 
-sfd_path <- "C:/Users/griswold/Desktop/datasets/cfho_analysis/sfd/"
+sfd_path <- "./cfho_analysis/sfd/"
 
 #analysis_type <- "main_analysis/"
 #analysis_type <- "sensitivity_test_neighbors/"
