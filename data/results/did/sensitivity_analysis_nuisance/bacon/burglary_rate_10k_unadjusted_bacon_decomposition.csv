@@ -1,0 +1,4 @@
+"type","weight","mean_est"
+"Earlier vs Later Treated",0.021,0.001
+"Later vs Earlier Treated",0.035,-6.032
+"Treated vs Untreated",0.944,-5.361

@@ -1,0 +1,41 @@
+"city_name","treat_name","model_name","est_mean","est_lower","est_upper","format_text"
+"Across Sites","cfho_any","Unadjusted model, 
+binary treatment",0.90755010329018,0.171628876866406,2.02500020181993,"0.908 (0.172, 2.025)"
+"Across Sites","cfho_any","Adjusted model, 
+binary treatment",0.868217769493456,0.189217429517143,2.02390437212869,"0.868 (0.189, 2.024)"
+"Across Sites","cfho_num","Unadjusted model, 
+continuous treatment",0.421720976895053,0.0947769838148746,1.23368416456189,"0.422 (0.095, 1.234)"
+"Across Sites","cfho_num","Adjusted model, 
+continuous treatment",0.436131130464986,0.0698513653585444,1.12126945279913,"0.436 (0.07, 1.121)"
+"Fremont","cfho_any","Unadjusted model, 
+binary treatment",0.918620975281019,0.292600979623645,1.23786485951917,"0.919 (0.293, 1.238)"
+"Fremont","cfho_any","Adjusted model, 
+binary treatment",0.815743497820998,0.259501068067353,1.18932993904931,"0.816 (0.26, 1.189)"
+"Fremont","cfho_num","Unadjusted model, 
+continuous treatment",0.421149195575686,0.167180362186703,0.649678730964292,"0.421 (0.167, 0.65)"
+"Fremont","cfho_num","Adjusted model, 
+continuous treatment",0.296439170961884,0.0656553027036101,0.586730334149469,"0.296 (0.066, 0.587)"
+"Hayward","cfho_any","Unadjusted model, 
+binary treatment",1.75269304975947,1.11649300600924,2.11209033375502,"1.753 (1.116, 2.112)"
+"Hayward","cfho_any","Adjusted model, 
+binary treatment",1.62233973858685,1.07660069017445,2.1161001942541,"1.622 (1.077, 2.116)"
+"Hayward","cfho_num","Unadjusted model, 
+continuous treatment",1.04620745419205,0.733676644929686,1.27218967344574,"1.046 (0.734, 1.272)"
+"Hayward","cfho_num","Adjusted model, 
+continuous treatment",0.985566203898163,0.577153427091492,1.17077776179283,"0.986 (0.577, 1.171)"
+"Riverside","cfho_any","Unadjusted model, 
+binary treatment",0.491907982072906,0.104567536446031,1.21167509713061,"0.492 (0.105, 1.212)"
+"Riverside","cfho_any","Adjusted model, 
+binary treatment",0.623748647665867,0.127981662132432,1.32600533613376,"0.624 (0.128, 1.326)"
+"Riverside","cfho_num","Unadjusted model, 
+continuous treatment",0.292581376656038,0.118482413986169,0.544407927412322,"0.293 (0.118, 0.544)"
+"Riverside","cfho_num","Adjusted model, 
+continuous treatment",0.418860666147923,0.202953152727925,0.592299348746181,"0.419 (0.203, 0.592)"
+"San Diego county","cfho_any","Unadjusted model, 
+binary treatment",0.786045270694999,0.127214622291313,1.6859066884845,"0.786 (0.127, 1.686)"
+"San Diego county","cfho_any","Adjusted model, 
+binary treatment",0.739446945963386,0.0755378289074624,1.62064779361592,"0.739 (0.076, 1.621)"
+"San Diego county","cfho_num","Unadjusted model, 
+continuous treatment",0.300148823944529,0.0296654599381475,0.888393338725541,"0.3 (0.03, 0.888)"
+"San Diego county","cfho_num","Adjusted model, 
+continuous treatment",0.278529599394052,0.0153990116562906,0.859641281077925,"0.279 (0.015, 0.86)"

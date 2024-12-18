@@ -1,0 +1,37 @@
+City,variable,Control,Treated,Difference,sig
+Fremont,Eviction rate per 100 rental units,0.25 (0.79),0.45 (0.46),"0.2 (-0.03, 0.43)",0
+Fremont,Population: % black,0.03 (0.04),0.04 (0.03),"0.01 (-0.01, 0.02)",0
+Fremont,Population: % asian,0.63 (0.18),0.6 (0.17),"-0.02 (-0.09, 0.05)",0
+Fremont,Population: % white,0.29 (0.14),0.26 (0.12),"-0.03 (-0.08, 0.02)",0
+Fremont,Population: % indigenous,0.01 (0.01),0.01 (0.01),"0 (0, 0.01)",1
+Fremont,Population: % Hispanic/Latine,0.11 (0.1),0.17 (0.12),"0.06 (0.01, 0.11)",1
+Fremont,Median income (2020 dollars),54932.92 (12453.66),48385.5 (12013.94),"-6547.42 (-11472.3, -1622.53)",1
+Fremont,Number of rental units,169.81 (170.89),481.06 (288.14),"311.25 (205.08, 417.41)",1
+Fremont,N,86,32,,1
+Hayward,Eviction rate per 100 rental units,0.62 (1.1),0.91 (0.82),"0.29 (-0.23, 0.81)",0
+Hayward,Population: % black,0.11 (0.08),0.16 (0.09),"0.06 (0, 0.11)",1
+Hayward,Population: % asian,0.3 (0.14),0.24 (0.06),"-0.07 (-0.11, -0.02)",1
+Hayward,Population: % white,0.42 (0.14),0.44 (0.05),"0.02 (-0.02, 0.06)",0
+Hayward,Population: % indigenous,0.02 (0.02),0.02 (0.01),"0 (-0.01, 0.01)",0
+Hayward,Population: % Hispanic/Latine,0.39 (0.19),0.43 (0.13),"0.04 (-0.04, 0.13)",0
+Hayward,Median income (2020 dollars),35544.61 (14279.09),32630.17 (8444.28),"-2914.45 (-8547.13, 2718.23)",0
+Hayward,Number of rental units,226.83 (174.14),519.58 (341.67),"292.75 (96.04, 489.46)",1
+Hayward,N,88,12,,1
+Riverside,Eviction rate per 100 rental units,1.6 (3.32),1.08 (0.99),"-0.53 (-1.15, 0.09)",0
+Riverside,Population: % black,0.07 (0.06),0.09 (0.06),"0.02 (0, 0.03)",1
+Riverside,Population: % asian,0.09 (0.09),0.07 (0.08),"-0.02 (-0.04, 0.01)",0
+Riverside,Population: % white,0.64 (0.17),0.59 (0.13),"-0.05 (-0.09, -0.01)",1
+Riverside,Population: % indigenous,0.02 (0.03),0.02 (0.03),"0 (0, 0.01)",0
+Riverside,Population: % Hispanic/Latine,0.51 (0.23),0.58 (0.19),"0.07 (0.01, 0.13)",1
+Riverside,Median income (2020 dollars),29908.62 (13275.48),22664.34 (10146.36),"-7244.28 (-10511.55, -3977.02)",1
+Riverside,Number of rental units,153.42 (154.4),364.62 (194.59),"211.2 (159.37, 263.04)",1
+Riverside,N,127,74,,1
+San Diego (unincorporated cities),Eviction rate per 100 rental units,0.74 (1.32),0.98 (1.56),"0.25 (-0.11, 0.61)",0
+San Diego (unincorporated cities),Population: % black,0.06 (0.08),0.04 (0.06),"-0.02 (-0.03, -0.01)",1
+San Diego (unincorporated cities),Population: % asian,0.13 (0.13),0.08 (0.08),"-0.05 (-0.07, -0.03)",1
+San Diego (unincorporated cities),Population: % white,0.77 (0.17),0.82 (0.11),"0.06 (0.03, 0.08)",1
+San Diego (unincorporated cities),Population: % indigenous,0.02 (0.03),0.02 (0.03),"0.01 (0, 0.02)",1
+San Diego (unincorporated cities),Population: % Hispanic/Latine,0.32 (0.25),0.4 (0.26),"0.07 (0.01, 0.14)",1
+San Diego (unincorporated cities),Median income (2020 dollars),39809.41 (20867.16),30902.25 (12319.92),"-8907.15 (-11868.63, -5945.67)",1
+San Diego (unincorporated cities),Number of rental units,292.25 (313.31),380.75 (255.99),"88.5 (28.66, 148.34)",1
+San Diego (unincorporated cities),N,1679,75,,1

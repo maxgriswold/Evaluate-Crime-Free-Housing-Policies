@@ -1,0 +1,237 @@
+geoid,location,county,year_implemented,policy_type,treated,repeal,repeal_date,nuisance
+600296,adelanto,san bernardino,2017,cfmhp,1,T,2020,0
+600394,agoura hills,los angeles,2003,nuisance_drug,0,F,NA,1
+600562,alameda,alameda,2007,cfmhp,0.5,F,NA,0
+600674,albany,alameda,2007,cfmhp,0.5,F,NA,0
+600884,alhambra,los angeles,2003,nuisance_drug,0,F,NA,1
+601640,american canyon,napa,2015,cfmhp,1,F,NA,0
+602252,antioch,contra costa,1995,nuisance_arrest,0,F,NA,1
+602364,apple valley,san bernardino,1995,cfmhp,1,F,NA,0
+602462,arcadia,los angeles,2003,nuisance_drug,0,F,NA,1
+602896,artesia,los angeles,2003,nuisance_drug,0,F,NA,1
+603064,atascadero,san luis obispo,2005,cfmhp,1,T,2017,0
+603274,avalon,los angeles,2003,nuisance_drug,0,F,NA,1
+603386,azusa,los angeles,2003,nuisance_drug,0,F,NA,1
+603526,bakersfield,kern,2004,cfmhp,1,F,NA,0
+603666,baldwin park,los angeles,2009,cfmhp,1,F,NA,0
+603820,banning,riverside,2006,nuisance_arrest,0,F,NA,1
+604030,barstow,san bernardino,,cfmhp,1,F,NA,0
+604870,bell,los angeles,1998,nuisance_arrest,0,F,NA,1
+604982,bellflower,los angeles,2008,nuisance_drugs,0,F,NA,1
+604996,bell gardens,los angeles,2003,nuisance_drug,0,F,NA,1
+605290,benicia,solano,1998,nuisance,0,F,NA,1
+606000,berkeley,alameda,2005,nuisance_drugs,0,F,NA,1
+606308,beverly hills,los angeles,2003,nuisance_drug,0,F,NA,1
+606434,big bear lake,san bernardino,,cfmhp,1,F,NA,0
+607162,blue lake,humboldt,2018,nuisance_mild,0,F,NA,1
+607946,bradbury,los angeles,2003,nuisance_drug,0,F,NA,1
+608142,brentwood,contra costa,,cfmhp,1,F,NA,0
+608968,burbank,los angeles,2003,nuisance_drug,0,F,NA,1
+609598,calabasas,los angeles,2003,nuisance_drug,0,F,NA,1
+610928,canyon lake,riverside,2020,cfmhp,1,F,NA,0
+611194,carlsbad,san diego,2010,cfmhp,1,F,NA,0
+611530,carson,los angeles,2003,nuisance_drug,0,F,NA,1
+612048,cathedral city,riverside,2013,cfmhp,1,F,NA,0
+612524,ceres,stanislaus,2020,nuisance_general,0,F,NA,1
+612552,cerritos,los angeles,2003,nuisance_drug,0,F,NA,1
+613210,chino,san bernardino,,cfmhp,1,F,NA,0
+613214,chino hills,san bernardino,,cfmhp,1,F,NA,0
+613392,chula vista,san diego,2016,cfmhp,1,F,NA,0
+613588,citrus heights,sacramento,1998,nuisance_general,0,F,NA,1
+613756,claremont,los angeles,2012,cfmhp,1,F,NA,0
+613882,clayton,contra costa,,cfmhp,1,F,NA,0
+614218,clovis,fresno,2014,nuisance_arrest,0,F,NA,1
+614274,coalinga,fresno,2018,nuisance_drugs,0,F,NA,1
+614736,colma,san mateo,2005,nuisance_drug,0,F,NA,1
+614890,colton,san bernardino,2010,cfmhp,1,F,NA,0
+614974,commerce,los angeles,1990,nuisance_drugs,0,F,NA,1
+615044,compton,los angeles,2003,nuisance_drug,0,F,NA,1
+616000,concord,contra costa,,nuisance_drugs,0,F,NA,1
+616378,coronado,san diego,,nuisance_drugs,0,F,NA,1
+616532,costa mesa,orange,2014,cfmhp,1,F,NA,0
+616742,covina,los angeles,,cfmhp,1,F,NA,0
+617022,crescent city,del norte,2018,cfmhp,1,F,NA,0
+617498,cudahy,los angeles,2003,nuisance_drug,0,F,NA,1
+617568,culver city,los angeles,2003,nuisance_drug,0,F,NA,1
+617988,danville,contra costa,,cfmhp,1,F,NA,0
+618100,davis,yolo,1995,cfmhp,1,F,NA,0
+618506,del mar,san diego,2010,cfmhp,1,F,NA,0
+619192,diamond bar,los angeles,,None,0,F,NA,0
+619766,downey,los angeles,2003,nuisance_drug,0,F,NA,1
+619990,duarte,los angeles,1990,nuisance_drugs,0,F,NA,1
+620018,dublin,alameda,2007,cfmhp,1,F,NA,0
+621230,eastvale,riverside,2013,cfmhp,1,F,NA,0
+621712,el cajon,san diego,1997,cfmhp,1,F,NA,0
+621810,el cerrito,contra costa,,cfmhp,1,F,NA,0
+622020,elk grove,sacramento,1998,nuisance_general,0,F,NA,1
+622230,el monte,los angeles,2015,cfmhp,1,F,NA,0
+622412,el segundo,los angeles,2003,nuisance_drug,0,F,NA,1
+622594,emeryville,alameda,2007,cfmhp,0.5,F,NA,0
+622678,encinitas,san diego,2014,cfmhp,1,F,NA,0
+622790,escalon,san joaquin,1992,nuisance_gang,0,F,NA,1
+622804,escondido,san diego,2006,cfmhp,1,F,NA,0
+623042,eureka,humboldt,2015,nuisance_drug,0,F,NA,1
+623182,fairfield,solano,,cfmhp,1,F,NA,0
+624638,folsom,sacramento,1998,nuisance_general,0,F,NA,1
+624680,fontana,san bernardino,1999,cfmhp,1,F,NA,0
+625296,fortuna,humboldt,,cfmhp,1,F,NA,0
+625436,fowler,fresno,2017,nuisance_general,0,F,NA,1
+626000,fremont,alameda,,cfmhp,1,F,NA,0
+627000,fresno,fresno,,cfmhp,1,F,NA,0
+628112,galt,sacramento,1998,nuisance_general,0,F,NA,1
+628168,gardena,los angeles,2012,nuisance_ordinance,0,F,NA,1
+630000,glendale,los angeles,1999,cfmhp,1,F,NA,0
+630014,glendora,los angeles,2003,nuisance_drug,0,F,NA,1
+630658,grand terrace,san bernardino,,unsure,0.5,F,NA,0
+630798,grass valley,nevada,2010,nuisance_general,0,F,NA,1
+631960,hanford,kings,1998,cfmhp,1,F,NA,0
+632506,hawaiian gardens,los angeles,1990,drug_nuisance,0,F,NA,1
+632548,hawthorne,los angeles,2016,cfmhp,1,F,NA,0
+633000,hayward,alameda,2003,cfmhp,1,F,NA,0
+633182,hemet,riverside,2013,cfmhp,1,F,2021,0
+633308,hercules,contra costa,,cfmhp,1,F,NA,0
+633364,hermosa beach,los angeles,2003,nuisance_drug,0,F,NA,1
+633434,hesperia,san bernardino,2016,cfmhp,1,F,NA,0
+633518,hidden hills,los angeles,2003,nuisance_drug,0,F,NA,1
+633588,highland,san bernardino,2015,cfmhp,1,F,NA,0
+634120,hollister,san benito,2017,nuisance_general,0,F,NA,1
+634904,hughson,stanislaus,2006,nuisance_general,0,F,NA,1
+636000,huntington beach,orange,1998,nuisance_general,0,F,NA,1
+636056,huntington park,los angeles,2000,nuisance_general,0,F,NA,1
+636294,imperial beach,san diego,2010,cfmhp,1,F,NA,0
+636448,indio,riverside,1996,cfmhp,1,F,NA,0
+636490,industry,los angeles,2003,nuisance_drug,0,F,NA,1
+636546,inglewood,los angeles,2003,nuisance_drug,0,F,NA,1
+636672,ione,amador,2009,nuisance_general,0,F,NA,1
+636826,irwindale,los angeles,2003,nuisance_drug,0,F,NA,1
+636882,isleton,sacramento,1998,nuisance_general,0,F,NA,1
+638226,kerman,fresno,,cfmhp,1,F,NA,0
+638520,king city,monterey,2017,nuisance_general,0,F,NA,1
+639122,lafayette,contra costa,,cfmhp,1,F,NA,0
+639290,la habra,orange,1999,nuisance_gang_drug; cfmhp?,0,F,NA,1
+639304,la habra heights,los angeles,2003,nuisance_drug,0,F,NA,1
+639486,lake elsinore,riverside,,cfmhp,1,F,NA,0
+639892,lakewood,los angeles,2003,nuisance_drug,0,F,NA,1
+640004,la mesa,san diego,1999,cfmhp,1,F,NA,0
+640032,la mirada,los angeles,1999,nuisance_drug,0,F,NA,1
+640130,lancaster,los angeles,2007,cfmhp,1,F,NA,0
+640340,la puente,los angeles,2003,nuisance_drug,0,F,NA,1
+640354,la quinta,riverside,2009,cfmhp,1,F,NA,0
+640830,la verne,los angeles,2003,nuisance_drug,0,F,NA,1
+640886,lawndale,los angeles,1997,nuisance_general,0,F,NA,1
+641124,lemon grove,san diego,2015,cfmhp,1,F,NA,0
+641152,lemoore,kings,2005,cfmhp,1,F,NA,0
+641992,livermore,alameda,2014,cfmhp,1,F,NA,0
+642370,loma linda,san bernardino,,cfmhp,1,F,NA,0
+642468,lomita,los angeles,2003,nuisance_drug,0,F,NA,1
+643000,long beach,los angeles,1988,nuisance_general,0,F,NA,1
+644000,los angeles,los angeles,2013,nuisance_general,0,F,NA,1
+644574,lynwood,los angeles,2009,nuisance_general,0,F,NA,1
+645246,malibu,los angeles,2003,nuisance_drug,0,F,NA,1
+645400,manhattan beach,los angeles,2003,nuisance_drug,0,F,NA,1
+645484,manteca,san joaquin,2010,nuisance_general,0,F,NA,1
+646114,martinez,contra costa,,cfmhp,1,F,NA,0
+646492,maywood,los angeles,1997,nuisance_drug_gang,0,F,NA,1
+646842,menifee,riverside,2018,nuisance_drug,0,F,NA,1
+648354,modesto,stanislaus,2012,cfmhp,1,F,NA,0
+648648,monrovia,los angeles,2003,nuisance_drug,0,F,NA,1
+648788,montclair,san bernardino,2009,nuisance_general,0,F,NA,1
+648816,montebello,los angeles,2003,nuisance_drug,0,F,NA,1
+648914,monterey park,los angeles,2003,nuisance_drug,0,F,NA,1
+649187,moraga,contra costa,,cfmhp,1,F,NA,0
+649270,moreno valley,riverside,1999,cfmhp,1,F,NA,0
+650398,national city,san diego,2004,nuisance_drugs,0,F,NA,1
+650734,needles,san bernardino,,cfmhp,1,F,NA,0
+650874,nevada city,nevada,2017,nuisance_general,0,F,NA,1
+650916,newark,alameda,2001,nuisance_general,0,F,NA,1
+651140,newman,stanislaus,1992,nuisance_gang,0,F,NA,1
+651560,norco,riverside,,None,0,F,NA,0
+652526,norwalk,los angeles,2003,nuisance_drug,0,F,NA,1
+652582,novato,marin,2014,cfmhp,1,F,NA,0
+653000,oakland,alameda,2013,nuisance_general,0,F,NA,1
+653070,oakley,contra costa,,cfmhp,1,F,NA,0
+653322,oceanside,san diego,2007,cfmhp,1,F,NA,0
+653896,ontario,san bernardino,2003,cfmhp,1,F,NA,0
+653980,orange,orange,1996,nuisance_general,0,F,NA,1
+654232,orinda,contra costa,,cfmhp,1,F,NA,0
+654386,oroville,butte,2019,nuisance_drugs,0,F,NA,1
+655156,palmdale,los angeles,2010,cfmhp,1,F,NA,0
+655184,palm desert,riverside,,cfmhp,1,F,NA,0
+655380,palos verdes estates,los angeles,2003,nuisance_drug,0,F,NA,1
+655618,paramount,los angeles,1999,good_neighbor,1,F,NA,0
+655856,parlier,fresno,,nuisance_general,0,F,NA,1
+656000,pasadena,los angeles,1989,nuisance_drug,0,F,NA,1
+656924,pico rivera,los angeles,2003,nuisance_drug,0,F,NA,1
+656938,piedmont,alameda,2007,cfmhp,0.5,F,NA,0
+657288,pinole,contra costa,,cfmhp,1,F,NA,0
+657456,pittsburg,contra costa,2005,cfmhp,1,F,NA,0
+657764,pleasant hill,contra costa,,cfmhp,1,F,NA,0
+657792,pleasanton,alameda,2007,cfmhp,0.5,F,NA,0
+658072,pomona,los angeles,2008,cfmhp,1,F,NA,0
+658520,poway,san diego,2009,cfmhp,1,F,NA,0
+659444,rancho cordova,sacramento,2003,cfmhp,1,F,NA,0
+659451,rancho cucamonga,san bernardino,2019,cfmhp,1,F,NA,0
+659514,rancho palos verdes,los angeles,2003,nuisance_drug,0,F,NA,1
+659962,redlands,san bernardino,1995,cfmhp,1,F,NA,0
+660018,redondo beach,los angeles,2003,nuisance_drug,0,F,NA,1
+660466,rialto,san bernardino,,cfmhp,1,F,NA,0
+660620,richmond,contra costa,,cfmhp,1,F,NA,0
+662000,riverside,riverside,2005,cfmhp,1,F,NA,0
+662546,rohnert park,sonoma,2012,nuisance_general,0,F,NA,1
+662602,rolling hills,los angeles,2003,nuisance_drug,0,F,NA,1
+662644,rolling hills estates,los angeles,2003,nuisance_drug,0,F,NA,1
+662896,rosemead,los angeles,2003,nuisance_drug,0,F,NA,1
+664000,sacramento,sacramento,2010,nuisance_drugs?,0,Partial,2019,1
+664140,st. helena,napa,2002,nuisance_general,0,F,NA,1
+665000,san bernardino,san bernardino,2011,cfmhp,1,F,NA,0
+666000,san diego,san diego,2010,cfmhp,1,F,NA,0
+666070,san dimas,los angeles,2003,nuisance_drug,0,F,NA,1
+666140,san fernando,los angeles,2003,nuisance_drug,0,F,NA,1
+667042,san gabriel,los angeles,2003,nuisance_drug,0,F,NA,1
+667112,san jacinto,riverside,2012,nuisance_general,0,F,NA,1
+668000,san jose,santa clara,2008,nuisance_general,0,F,NA,1
+668014,san juan bautista,san benito,2017,nuisance_general,0,F,NA,1
+668084,san leandro,alameda,2008,cfmhp,1,F,NA,0
+668196,san marcos,san diego,2016,cfmhp,1,F,NA,0
+668224,san marino,los angeles,2003,nuisance_drug,0,F,NA,1
+668294,san pablo,contra costa,,cfmhp,1,F,NA,0
+668378,san ramon,contra costa,2007,cfmhp,1,F,NA,0
+669088,santa clarita,los angeles,2003,nuisance_drug,0,F,NA,1
+669154,santa fe springs,los angeles,2003,nuisance_drug,0,F,NA,1
+670000,santa monica,los angeles,2003,nuisance_drug,0,F,NA,1
+670042,santa paula,ventura,2006,nuisance_general,0,F,NA,1
+670224,santee,san diego,2010,cfmhp,1,F,NA,0
+671806,sierra madre,los angeles,2003,nuisance_drug,0,F,NA,1
+671876,signal hill,los angeles,2003,nuisance_drug,0,F,NA,1
+672506,solana beach,san diego,2010,cfmhp,1,F,NA,0
+672996,south el monte,los angeles,2003,nuisance_drug,0,F,NA,1
+673080,south gate,los angeles,2003,nuisance_drug,0,F,NA,1
+673220,south pasadena,los angeles,2003,nuisance_drug,0,F,NA,1
+673262,south san francisco,san mateo,1997,nuisance_general,0,F,NA,1
+675000,stockton,san joaquin,2003,cfmhp,1,F,NA,0
+678092,tehachapi,kern,2015,nuisance_general,0,F,NA,1
+678120,temecula,riverside,2012,cfmhp,1,F,NA,0
+678148,temple city,los angeles,2003,nuisance_drug,0,F,NA,1
+680000,torrance,los angeles,2003,nuisance_drug,0,F,NA,1
+680448,trinidad,humboldt,1994,nuisance_drug,0,F,NA,1
+680994,twentynine palms,san bernardino,1989,nuisance_drug_gangs,0,F,NA,1
+681204,union city,alameda,2012,cfmhp,1,F,NA,0
+681344,upland,san bernardino,2017,nuisance_general,0,F,NA,1
+681554,vacaville,solano,2006,cfmhp,1,F,NA,0
+681666,vallejo,solano,2007,cfmhp,1,T,2020,0
+682422,vernon,los angeles,2003,nuisance_drug,0,F,NA,1
+682590,victorville,san bernardino,2013,cfmhp,1,F,NA,0
+682954,visalia,tulare,2008,nuisance_general,0,F,NA,1
+682996,vista,san diego,2016,cfmhp,1,F,NA,0
+683332,walnut,los angeles,2003,nuisance_drug,0,F,NA,1
+683346,walnut creek,contra costa,,cfmhp,1,F,NA,0
+684200,west covina,los angeles,1997,cfmhp,1,F,NA,0
+684410,west hollywood,los angeles,2003,nuisance_drug,0,F,NA,1
+684438,westlake village,los angeles,2003,nuisance_drug,0,F,NA,1
+684816,west sacramento,yolo,2003,nuisance_general,0,F,NA,1
+685292,whittier,los angeles,2003,nuisance_drug,0,F,NA,1
+685446,wildomar,riverside,,cfmhp,1,F,NA,0
+685586,williams,colusa,2013,nuisance_general,0,F,NA,1
+686328,woodland,yolo,2019,cfmhp,1,F,NA,0
+687042,yucaipa,san bernardino,2009,cfmhp,1,F,NA,0
+687056,yucca valley,san bernardino,,cfmhp,1,F,NA,0

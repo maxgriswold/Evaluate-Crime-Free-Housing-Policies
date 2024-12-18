@@ -17,7 +17,7 @@ census_key <- ""
 make_plots <- F
 check_ucr  <- F
 
-# Load concatennated files from Jacob Kaplan
+# Load concatennated files from Jacob Kaplan. Too large to store in Repo, needs to be downloaded.
 
 # https://www.openicpsr.org/openicpsr/project/100707/version/V17/view
 # https://www.icpsr.umich.edu/web/ICPSR/studies/35158
@@ -27,13 +27,13 @@ ucr <- fread("./data/ucr/ucr_1960_2020_offenses_known.csv")
 # Get treatment data
 treat <- fread("./data/treated_locs.csv", fill = T)
 
-# Load decennial census estimates:
-df_decennial <- fread('./data/census/decennial/nhgis_place/decennial_processed.csv')
+# Load decennial census estimates.
+# Obtained through IPUMS NHGIS
+df_decennial <- fread('./data/decennial_processed.csv')
 
 
 # UCR distinguishes between two broad categories of crime: those committed
-# against persons & those committed against property. Let's use these
-# as the primary outcome variables, with their suggested aggregation in the
+# against persons & those committed against property. Following suggestions for aggregation in
 # IPCSR UCR documentation:
 
 keep_vars <- c("ori", "year", "state", "crosswalk_agency_name",
@@ -135,7 +135,7 @@ extract_census <- function(y, geo = "place"){
       .[, .(GEOID, NAME)] %>%
       setnames(., names(.), c("geoid", "location"))
     
-    cw <- fread("nhgis/bg2020_tr2010/nhgis_bg2020_tr2010.csv")
+    cw <- fread("./data/nhgis_bg2020_tr2010.csv")
     cw <- cw[, .(bg2020ge, tr2010ge, wt_adult)]
     setnames(cw, names(cw), c("geoid_new", "geoid", "weight_adult_interpolated"))
     
@@ -222,7 +222,7 @@ census_vars <- setDT(ldply(years, extract_census))
 census_vars[, geoid := as.character(as.numeric(geoid))]
 
 # Merge on rent CPI and calculate rent prices & income in 2020 dollars:
-cpi_rent <- fread("./data/bls/cpi_urban/cpi_rent_shelter.csv")
+cpi_rent <- fread("./cpi_rent_shelter.csv")
 setnames(cpi_rent, names(cpi_rent), c("year", "cpi_b82"))
 cpi_rent[, year := as.numeric(gsub("1/1/", "", year))]
 
@@ -619,4 +619,4 @@ df_analysis <- join(df_analysis, df_evict, by = c("geoid", "year"), type = 'left
 setnames(df_analysis, c("index_total", "assault_total", "burglary_total"),
          c("total_crime_rate_10k", "assault_rate_10k", "burglary_rate_10k"))
 
-write.csv(df_analysis, "./cfho_analysis/did/df_did_analysis.csv", row.names = F)
+write.csv(df_analysis, "./data/df_did_analysis.csv", row.names = F)
